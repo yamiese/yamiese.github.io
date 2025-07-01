@@ -14,10 +14,8 @@
 
     header.intro {
       display: flex;
-      align-items: stretch;
-      justify-content: center;
+      height: 100vh; /* Full screen height */
       flex-wrap: wrap;
-      height: 300px;
     }
 
     .intro-text {
@@ -28,30 +26,30 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: left;
+      align-items: flex-start;
     }
 
     .intro-text h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 3em;
     }
 
     .intro-text p {
       margin-top: 10px;
-      font-size: 1.2em;
+      font-size: 1.5em;
     }
 
     .intro-image {
       flex: 0 0 70%;
       background: white;
-      padding: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .intro-image img {
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
