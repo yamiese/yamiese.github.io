@@ -10,21 +10,47 @@
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
-      text-align: center;
     }
-    header {
+
+    header.intro {
       background: #222;
       color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 40px 20px;
+      text-align: left;
+      flex-wrap: wrap;
     }
-    header h1 {
+
+    .intro-text {
+      flex: 0 0 30%;
+      padding: 20px;
+    }
+
+    .intro-text h1 {
       margin: 0;
       font-size: 2.5em;
     }
-    header p {
+
+    .intro-text p {
       margin-top: 10px;
       font-size: 1.2em;
     }
+
+    .intro-image {
+      flex: 0 0 70%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .intro-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
     .portfolio {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -33,6 +59,7 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .portfolio img {
       width: 100%;
       height: auto;
@@ -40,32 +67,42 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       transition: transform 0.3s;
     }
+
     .portfolio img:hover {
       transform: scale(1.05);
     }
+
+    .contact {
+      margin: 40px 0;
+      text-align: center;
+    }
+
     footer {
       background: #222;
       color: white;
       padding: 15px;
       margin-top: 40px;
-    }
-    .contact {
-      margin: 40px 0;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>ADIL ALIAS</h1>
-  <p>Photography Portfolio</p>
+<header class="intro">
+  <div class="intro-text">
+    <h1>ADIL ALIAS</h1>
+    <p>Photography Portfolio</p>
+  </div>
+  <div class="intro-image">
+    <img src="images/yourphoto.jpg" alt="Adil Alias">
+  </div>
 </header>
 
 <section class="portfolio">
-  <img src="image/photo1.jpg.jpg" alt="Sample Photo 1">
-  <img src="image/DSC_0787.JPG" alt="Sample Photo 2">
-  <img src="image/200w.gif" alt="Sample Photo 3">
-  <img src="image/IMG_9748.JPG" alt="Sample Photo 4">
+  <img src="images/photo1.jpg" alt="Sample Photo 1">
+  <img src="images/DSC_0787.JPG" alt="Sample Photo 2">
+  <img src="images/200w.gif" alt="Sample Photo 3">
+  <img src="images/IMG_9748.JPG" alt="Sample Photo 4">
 </section>
 
 <section class="contact">
