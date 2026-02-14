@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adil Alias | Photography Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
   * {
     margin: 0;
@@ -11,133 +15,267 @@
     box-sizing: border-box;
   }
 
-  body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0f0f0f;
+    color: #f5f5f5;
   }
 
   .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
   }
 
+  /* Sidebar */
   .sidebar {
-    background: #000;
-    color: white;
-    width: 30%;
-    min-width: 200px;
+    background: #111;
+    width: 25%;
+    min-width: 220px;
+    position: fixed;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    position: fixed;
-    height: 100%;
+    padding: 40px 20px;
   }
 
   .sidebar h1 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
+    font-size: 1.8em;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    text-align: center;
   }
 
   .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    gap: 20px;
   }
 
   .nav-links a {
-    color: white;
+    color: #f5f5f5;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
   }
 
   .nav-links a:hover {
-    color: grey;
+    opacity: 1;
   }
 
+  /* Content */
   .content {
-    margin-left: 30%;
-    width: 70%;
-    padding: 40px;
-    background: #f5f5f5;
-    overflow-y: auto;
+    margin-left: 25%;
+    width: 75%;
+    padding: 80px;
   }
 
-  .content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  h2 {
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    opacity: 0.7;
   }
 
+  section {
+    margin-bottom: 120px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+  }
+
+  section:nth-child(1) { animation-delay: 0.2s; }
+  section:nth-child(2) { animation-delay: 0.4s; }
+  section:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Portfolio Grid */
   .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    max-width: 1000px;
-    margin: 20px auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
   }
 
-  .portfolio img {
+  .item {
+    overflow: hidden;
+  }
+
+  .item.portrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .item.landscape {
+    aspect-ratio: 16 / 9;
+  }
+
+  .item.wide {
+    grid-column: span 2;
+  }
+
+  .item img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: brightness(85%);
+    cursor: pointer;
   }
 
-  .portfolio img:hover {
+  .item img:hover {
     transform: scale(1.05);
+    filter: brightness(100%);
+  }
+
+  /* Contact */
+  .contact p {
+    margin-bottom: 15px;
+    opacity: 0.6;
+    letter-spacing: 2px;
   }
 
   footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #555;
+    margin-top: 80px;
+    opacity: 0.4;
+    font-size: 0.8em;
   }
+
+  /* Mobile Responsive */
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 30px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .content {
+      margin-left: 0;
+      width: 100%;
+      padding: 50px 30px;
+    }
+  }
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
+  <!-- Sidebar -->
   <div class="sidebar">
     <h1>ADIL ALIAS</h1>
     <div class="nav-links">
+      <a href="#home">HOME</a>
       <a href="#work">WORK</a>
-      <a href="#test">TEST</a>
       <a href="#contact">CONTACT</a>
     </div>
   </div>
 
+  <!-- Content -->
   <div class="content">
-    <h2 id="test">TEST</h2>
-    <img src="images/yourphoto.jpg" alt="Adil Alias">
 
-    <section class="portfolio" id="work">
-      <img src="image/photo1.jpg" alt="Sample Photo 1">
-      <img src="image/DSC_0787.JPG" alt="Sample Photo 2">
-      <img src="image/200w.gif" alt="Sample Photo 3">
-      <img src="image/IMG_9748.JPG" alt="Sample Photo 4">
+    <!-- Home -->
+    <section id="home">
+      <h2>HOME</h2>
+      <p style="max-width:600px; opacity:0.6; line-height:1.8;">
+        Treasure the experience, dreams fade away when you wake up.
+      </p>
     </section>
 
-    <section class="contact" id="contact">
-      <h2>Contact Me</h2>
-      <p>Email: adilalias2004@gmail.com</p>
-      <p>Instagram: @adilaliass</p>
+    <!-- Portfolio -->
+    <section id="work">
+      <h2>WORK</h2>
+      <div class="portfolio">
+
+        <div class="item portrait"><img src="images/IMG_8813.JPG" alt="Photo 1" loading="lazy"></div>
+        <div class="item landscape wide"><img src="images/IMG_8815.JPG" alt="Photo 2" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8816.JPG" alt="Photo 3" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8977.JPG" alt="Photo 4" loading="lazy"></div>
+        <div class="item landscape wide"><img src="images/IMG_8978.JPG" alt="Photo 5" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8974.JPG" alt="Photo 6" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8976.JPG" alt="Photo 7" loading="lazy"></div>
+        <div class="item landscape wide"><img src="images/IMG_8980.JPG" alt="Photo 8" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8981.JPG" alt="Photo 9" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_8983.JPG" alt="Photo 10" loading="lazy"></div>
+        <div class="item landscape wide"><img src="images/IMG_8975.JPG" alt="Photo 11" loading="lazy"></div>
+        <div class="item portrait"><img src="images/IMG_E0197.JPG" alt="Photo 12" loading="lazy"></div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2>CONTACT</h2>
+      <p>adilalias2004@gmail.com</p>
+      <p>@adilaliass</p>
     </section>
 
     <footer>
-      &copy; 2025 Adil Alias | All Rights Reserved
+      &copy; 2026 Adil Alias — All Rights Reserved
     </footer>
+
   </div>
 
 </div>
+
+<!-- Lightbox Script -->
+<script>
+const images = document.querySelectorAll(".portfolio img");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    document.body.style.overflow = "hidden"; // disable scroll while lightbox open
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0,0,0,0.95)";
+    overlay.style.display = "flex";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.cursor = "pointer";
+    overlay.style.zIndex = "9999";
+
+    const fullImg = document.createElement("img");
+    fullImg.src = img.src;
+    fullImg.style.maxWidth = "90%";
+    fullImg.style.maxHeight = "90%";
+    fullImg.style.boxShadow = "0 0 20px rgba(255,255,255,0.2)";
+
+    overlay.appendChild(fullImg);
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener("click", () => {
+      document.body.removeChild(overlay);
+      document.body.style.overflow = "auto"; // re-enable scroll
+    });
+  });
+});
+</script>
 
 </body>
 </html>
